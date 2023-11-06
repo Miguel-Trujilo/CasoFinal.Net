@@ -176,6 +176,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(614, 432);
+            this.MinimumSize = new System.Drawing.Size(614, 432);
             this.Name = "Jardines";
             this.Text = "Jardines";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

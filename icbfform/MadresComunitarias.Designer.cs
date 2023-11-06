@@ -216,6 +216,9 @@
             this.Controls.Add(this.txtDireccion);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.MaximumSize = new System.Drawing.Size(610, 455);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(610, 455);
             this.Name = "MadresComunitarias";
             this.Text = "MadresComunitarias";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
