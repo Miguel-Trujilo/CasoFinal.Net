@@ -16,7 +16,7 @@ namespace icbfform
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Niños());
+            Application.Run(new Jardines());
         }
     }
 }

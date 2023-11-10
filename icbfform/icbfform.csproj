@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +47,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="modelo\estadoDAO.cs" />
+    <Compile Include="modelo\jardinDAO.cs" />
+    <Compile Include="modelo\ORM.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ORM.dbml</DependentUpon>
+    </Compile>
     <Compile Include="registro de asistencia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,9 +104,17 @@
     <EmbeddedResource Include="MadresComunitarias.resx">
       <DependentUpon>MadresComunitarias.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="modelo\ORM.dbml.layout">
+      <DependentUpon>ORM.dbml</DependentUpon>
+    </None>
     <EmbeddedResource Include="Niños.resx">
       <DependentUpon>Niños.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="modelo\ORM.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>ORM.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -123,6 +139,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

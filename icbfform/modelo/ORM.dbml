@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ICBF" Class="ORMDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-T3B2401\SQLEXPRESS;Initial Catalog=ICBF;Integrated Security=True" SettingsObjectName="icbfform.Properties.Settings" SettingsPropertyName="ICBFConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.descripcionNiño" Member="descripcionNiño">
+    <Type Name="descripcionNiño">
+      <Column Name="id_descripcion" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="descripcionNiño_registroAsistencia" Member="registroAsistencia" ThisKey="id_descripcion" OtherKey="id_descripcion" Type="registroAsistencia" />
+    </Type>
+  </Table>
+  <Table Name="dbo.usuarios" Member="usuarios">
+    <Type Name="usuarios">
+      <Column Name="id_usuario" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="telefono" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="direccion" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="correo" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="clave" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="id_rol" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="usuarios_niños" Member="niños" ThisKey="id_usuario" OtherKey="id_acudiente" Type="niños" />
+      <Association Name="rol_usuarios" Member="rol" ThisKey="id_rol" OtherKey="id_rol" Type="rol" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EPS" Member="EPS">
+    <Type Name="EPS">
+      <Column Name="id_eps" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="telefono" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="EPS_niños" Member="niños" ThisKey="id_eps" OtherKey="id_eps" Type="niños" />
+    </Type>
+  </Table>
+  <Table Name="dbo.estadoJardin" Member="estadoJardin">
+    <Type Name="estadoJardin">
+      <Column Name="id_estado" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="estado" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="estadoJardin_Jardines" Member="Jardines" ThisKey="id_estado" OtherKey="id_estado" Type="Jardines" />
+    </Type>
+  </Table>
+  <Table Name="dbo.grados" Member="grados">
+    <Type Name="grados">
+      <Column Name="id_grado" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="grado" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="grados_registroAvance" Member="registroAvance" ThisKey="id_grado" OtherKey="id_grado" Type="registroAvance" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Jardines" Member="Jardines">
+    <Type Name="Jardines">
+      <Column Name="id_jardin" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="direccion" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="id_estado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Jardines_madresComuniarias" Member="madresComuniarias" ThisKey="id_jardin" OtherKey="id_jardin" Type="madresComuniarias" />
+      <Association Name="Jardines_niños" Member="niños" ThisKey="id_jardin" OtherKey="id_jardin" Type="niños" />
+      <Association Name="estadoJardin_Jardines" Member="estadoJardin" ThisKey="id_estado" OtherKey="id_estado" Type="estadoJardin" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.madresComuniarias" Member="madresComuniarias">
+    <Type Name="madresComuniarias">
+      <Column Name="id_madre" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="direccion" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="telefono" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fecha_nacimiento" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="clave" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="id_jardin" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="madresComuniarias_registroAsistencia" Member="registroAsistencia" ThisKey="id_madre" OtherKey="id_madre" Type="registroAsistencia" />
+      <Association Name="madresComuniarias_registroAvance" Member="registroAvance" ThisKey="id_madre" OtherKey="id_madre" Type="registroAvance" />
+      <Association Name="Jardines_madresComuniarias" Member="Jardines" ThisKey="id_jardin" OtherKey="id_jardin" Type="Jardines" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.niños" Member="niños">
+    <Type Name="niños">
+      <Column Name="registro_nuip" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="fecha_nacimiento" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="id_tipo_sangre" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ciudad_nacimiento" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="id_acudiente" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="telefono" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="direccion" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="id_eps" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_jardin" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="EPS_niños" Member="EPS" ThisKey="id_eps" OtherKey="id_eps" Type="EPS" IsForeignKey="true" />
+      <Association Name="Jardines_niños" Member="Jardines" ThisKey="id_jardin" OtherKey="id_jardin" Type="Jardines" IsForeignKey="true" />
+      <Association Name="usuarios_niños" Member="usuarios" ThisKey="id_acudiente" OtherKey="id_usuario" Type="usuarios" IsForeignKey="true" />
+      <Association Name="registroAsistencia_niños" Member="registroAsistencia" ThisKey="registro_nuip" OtherKey="id_niño" Type="registroAsistencia" IsForeignKey="true" />
+      <Association Name="registroAvance_niños" Member="registroAvance" ThisKey="registro_nuip" OtherKey="id_niño" Type="registroAvance" IsForeignKey="true" />
+      <Association Name="tipoSangre_niños" Member="tipoSangre" ThisKey="id_tipo_sangre" OtherKey="id_tipo_sangre" Type="tipoSangre" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.registroAsistencia" Member="registroAsistencia">
+    <Type Name="registroAsistencia">
+      <Column Name="id_niño" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="fecha" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="id_descripcion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_madre" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="registroAsistencia_niños" Member="niños" ThisKey="id_niño" OtherKey="registro_nuip" Type="niños" Cardinality="One" />
+      <Association Name="descripcionNiño_registroAsistencia" Member="descripcionNiño" ThisKey="id_descripcion" OtherKey="id_descripcion" Type="descripcionNiño" IsForeignKey="true" />
+      <Association Name="madresComuniarias_registroAsistencia" Member="madresComuniarias" ThisKey="id_madre" OtherKey="id_madre" Type="madresComuniarias" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.registroAvance" Member="registroAvance">
+    <Type Name="registroAvance">
+      <Column Name="id_niño" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="año_escolar" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="id_grado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="notas" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="fecha_entrega" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="id_madre" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="registroAvance_niños" Member="niños" ThisKey="id_niño" OtherKey="registro_nuip" Type="niños" Cardinality="One" />
+      <Association Name="grados_registroAvance" Member="grados" ThisKey="id_grado" OtherKey="id_grado" Type="grados" IsForeignKey="true" />
+      <Association Name="madresComuniarias_registroAvance" Member="madresComuniarias" ThisKey="id_madre" OtherKey="id_madre" Type="madresComuniarias" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.rol" Member="rol">
+    <Type Name="rol">
+      <Column Name="id_rol" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="rol" Member="rol1" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Association Name="rol_usuarios" Member="usuarios" ThisKey="id_rol" OtherKey="id_rol" Type="usuarios" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tipoSangre" Member="tipoSangre">
+    <Type Name="tipoSangre">
+      <Column Name="id_tipo_sangre" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="tipo_sangre" Type="System.String" DbType="NVarChar(3) NOT NULL" CanBeNull="false" />
+      <Association Name="tipoSangre_niños" Member="niños" ThisKey="id_tipo_sangre" OtherKey="id_tipo_sangre" Type="niños" />
+    </Type>
+  </Table>
+</Database>

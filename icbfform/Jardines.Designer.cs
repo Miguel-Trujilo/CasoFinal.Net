@@ -32,7 +32,7 @@
             this.btnBorrar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnRegistrar = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvJardines = new System.Windows.Forms.DataGridView();
             this.txtId = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -41,7 +41,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvJardines)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -84,14 +84,15 @@
             this.btnRegistrar.TabIndex = 35;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = false;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
-            // dataGridView1
+            // dgvJardines
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(71, 221);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(457, 150);
-            this.dataGridView1.TabIndex = 34;
+            this.dgvJardines.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvJardines.Location = new System.Drawing.Point(71, 221);
+            this.dgvJardines.Name = "dgvJardines";
+            this.dgvJardines.Size = new System.Drawing.Size(457, 150);
+            this.dgvJardines.TabIndex = 34;
             // 
             // txtId
             // 
@@ -125,6 +126,7 @@
             // 
             // cmbEstado
             // 
+            this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEstado.FormattingEnabled = true;
             this.cmbEstado.Location = new System.Drawing.Point(198, 175);
             this.cmbEstado.Name = "cmbEstado";
@@ -167,7 +169,7 @@
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnRegistrar);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvJardines);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtNombre);
@@ -181,7 +183,8 @@
             this.MinimumSize = new System.Drawing.Size(614, 432);
             this.Name = "Jardines";
             this.Text = "Jardines";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.Jardines_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvJardines)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,7 +196,7 @@
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnRegistrar;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvJardines;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtNombre;
