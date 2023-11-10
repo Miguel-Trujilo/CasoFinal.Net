@@ -46,6 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="registro de asistencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="registro de asistencia.Designer.cs">
+      <DependentUpon>registro de asistencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="registro de avance academico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="registro de avance academico.Designer.cs">
+      <DependentUpon>registro de avance academico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegistroDeAcudiente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistroDeAcudiente.Designer.cs">
+      <DependentUpon>RegistroDeAcudiente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Jardines.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +108,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="registro de avance academico.resx">
+      <DependentUpon>registro de avance academico.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
